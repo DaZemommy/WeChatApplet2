@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.wechatapplet.dao.ModuleDao">
+  <resultMap id="BaseResultMap" type="org.wechatapplet.model.Module">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="module_name" jdbcType="VARCHAR" property="moduleName" />
+    <result column="cate_id" jdbcType="BIGINT" property="cateId" />
+    <result column="file_path" jdbcType="VARCHAR" property="filePath" />
+    <result column="status" jdbcType="SMALLINT" property="status" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="top" jdbcType="BIGINT" property="top" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.wechatapplet.model.Module">
+    <result column="attrs" jdbcType="LONGVARCHAR" property="attrs" />
+  </resultMap>
+  <resultMap extends="ResultMapWithBLOBs" id="ResultMapWithBLOBsExtend" type="org.wechatapplet.model.Module">
+    <result column="releaseStatus" jdbcType="SMALLINT" property="releaseStatus" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, module_name, cate_id, file_path, status, create_date, remark, top
+  </sql>
+  <sql id="Blob_Column_List">
+    attrs
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="org.wechatapplet.model.ModuleExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_module
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="org.wechatapplet.model.ModuleExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_module
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_module
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_module
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.wechatapplet.model.ModuleExample">
+    delete from t_module
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.wechatapplet.model.Module">
+    insert into t_module (id, module_name, cate_id, 
+      file_path, status, create_date, 
+      remark, top, attrs
+      )
+    values (#{id,jdbcType=BIGINT}, #{moduleName,jdbcType=VARCHAR}, #{cateId,jdbcType=BIGINT}, 
+      #{filePath,jdbcType=VARCHAR}, #{status,jdbcType=SMALLINT}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR}, #{top,jdbcType=BIGINT}, #{attrs,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.wechatapplet.model.Module">
+    insert into t_module
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="moduleName != null">
+        module_name,
+      </if>
+      <if test="cateId != null">
+        cate_id,
+      </if>
+      <if test="filePath != null">
+        file_path,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="top != null">
+        top,
+      </if>
+      <if test="attrs != null">
+        attrs,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="moduleName != null">
+        #{moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="cateId != null">
+        #{cateId,jdbcType=BIGINT},
+      </if>
+      <if test="filePath != null">
+        #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="top != null">
+        #{top,jdbcType=BIGINT},
+      </if>
+      <if test="attrs != null">
+        #{attrs,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.wechatapplet.model.ModuleExample" resultType="java.lang.Long">
+    select count(*) from t_module
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_module
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.moduleName != null">
+        module_name = #{record.moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cateId != null">
+        cate_id = #{record.cateId,jdbcType=BIGINT},
+      </if>
+      <if test="record.filePath != null">
+        file_path = #{record.filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=SMALLINT},
+      </if>
+      <if test="record.createDate != null">
+        create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.top != null">
+        top = #{record.top,jdbcType=BIGINT},
+      </if>
+      <if test="record.attrs != null">
+        attrs = #{record.attrs,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update t_module
+    set id = #{record.id,jdbcType=BIGINT},
+      module_name = #{record.moduleName,jdbcType=VARCHAR},
+      cate_id = #{record.cateId,jdbcType=BIGINT},
+      file_path = #{record.filePath,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=SMALLINT},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      top = #{record.top,jdbcType=BIGINT},
+      attrs = #{record.attrs,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_module
+    set id = #{record.id,jdbcType=BIGINT},
+      module_name = #{record.moduleName,jdbcType=VARCHAR},
+      cate_id = #{record.cateId,jdbcType=BIGINT},
+      file_path = #{record.filePath,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=SMALLINT},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      top = #{record.top,jdbcType=BIGINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.wechatapplet.model.Module">
+    update t_module
+    <set>
+      <if test="moduleName != null">
+        module_name = #{moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="cateId != null">
+        cate_id = #{cateId,jdbcType=BIGINT},
+      </if>
+      <if test="filePath != null">
+        file_path = #{filePath,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="top != null">
+        top = #{top,jdbcType=BIGINT},
+      </if>
+      <if test="attrs != null">
+        attrs = #{attrs,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="org.wechatapplet.model.Module">
+    update t_module
+    set module_name = #{moduleName,jdbcType=VARCHAR},
+      cate_id = #{cateId,jdbcType=BIGINT},
+      file_path = #{filePath,jdbcType=VARCHAR},
+      status = #{status,jdbcType=SMALLINT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      top = #{top,jdbcType=BIGINT},
+      attrs = #{attrs,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.wechatapplet.model.Module">
+    update t_module
+    set module_name = #{moduleName,jdbcType=VARCHAR},
+      cate_id = #{cateId,jdbcType=BIGINT},
+      file_path = #{filePath,jdbcType=VARCHAR},
+      status = #{status,jdbcType=SMALLINT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      top = #{top,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <!-- 自己定义 -->
+  <select id="selectByUserId" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBsExtend">
+  	select 
+      m.module_name,m.cate_id,m.file_path,m.create_date,u.id,u.status as releaseStatus,c.name
+    from t_user_module u left join t_module m on m.id = u.module_id left join t_module_cate c on m.cate_id = c.id
+    where u.user_id = #{userId,jdbcType=BIGINT}
+  </select>
+  
+  <select id="selectByCateId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  		SELECT * FROM t_module 
+  		<if test="cateId != null">
+  			WHERE cate_id = #{cateId}
+  		</if>
+  </select>
+</mapper>

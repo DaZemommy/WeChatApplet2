@@ -1,0 +1,266 @@
+@charset "utf-8";
+/* CSS Document */
+/***************页面样式重置****************/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {margin:0;padding:0;}
+table {border-collapse:collapse;border-spacing:0;}
+fieldset,img { border:0;}
+address,caption,cite,code,dfn,em,th,var {font-style:normal;font-weight:normal;}
+ul {list-style:none;}
+caption,th {text-align:left;}
+h1,h2,h3,h4,h5,h6,b {font-size:100%;font-weight:normal;}
+q:before,q:after {content:'';}
+abbr,acronym { border:0;}
+a{text-decoration:none;}
+i,em{font-style:normal;}
+body{font-size:12px; background:#f7fcff; font-family:"微软雅黑";}
+html,body{height:100%;}
+/***************全局样式****************/
+.w1000{width:1000px;}
+.mbAuto{margin:0 auto;}
+.fl{float:left;}
+.fr{float:right;}
+.red{color:#ff0000;}
+.color6{color:#666;}
+.orange{color:#ff6600;}
+.widthAuto{width:auto;}
+.mt20{margin-top:20px;}
+.mt10{margin-top:10px;}
+.mt15{margin-top:15px;}
+
+/***************登录 样式****************/
+.bgall{background:#2f323b;}
+.loginCon{height:670px; background:#1e66b7;}
+.w1200{width:1200px;}
+.mAuto{margin:0 auto;}
+.leftCon{width:auto; float:left; margin-top:83px;}
+.rightLogin{width:420px; float:right; margin-top:70px;}
+.loginTitle{height:40px; line-height:40px; font-size:24px; text-align:center; color:#fff;}
+.loginConLine{width:418px; height:391px; float:left; background:#fff; border:1px solid #dfdfdf; border-radius:2px; margin-top:20px;}
+.loginConLine h2{padding-left:15px;  font-size:18px; color:#333; height:58px; line-height:58px; border-bottom:1px solid #e8e8e8;}
+.dlLine{padding:20px; padding-top:30px;}
+.dlLine li{height:40px; margin-bottom:20px; color:#999;}
+.dlLine li em{width:40px; height:40px; float:left;}
+.textsrk{width:89%; height:40px; float:left; line-height:40px; background:#e8e8e8; font-size:14px; color:#999; border:0; text-indent:10px;}
+.textsrkA{width:60%; height:40px; float:left; line-height:40px; background:#e8e8e8; font-size:14px; color:#999; border:0; text-indent:10px;}
+.dlLine li span{width:130px; float:right;}
+.fxk{width:auto; float:left; margin-top:3px; margin-right:10px;}
+.submit{width:100%; height:40px; float:left; line-height:40px; text-align:center; border:0px; background:#00b3fb; font-size:18px; color:#fff; cursor:pointer;}
+/***************首页样式****************/
+.header{width:100%; float:left; height:100px; background:#2f323b; overflow:hidden;}
+.top_logo{width:420px; float:left;height:91px;}
+.content{ width:100%; float:left;}
+.content.content_help{background:#f7fcff;}
+.left_meun.left_meun_help{width:250px; background:#3b3f4a; position: absolute; height:89.5%; top:100px;}
+.right_con_help{min-height:700px; margin:0px 0 0 250px; padding-left:30px;}
+.topRight{width:auto; float:right;}
+.czLeft{width:auto; float:left; background:url(../img/line.jpg) no-repeat right; height:100px; padding-right:20px;}
+.czLeft li{width:auto; float:left; padding:0 15px; line-height:100px; color:#a6a6a9; font-size:14px;}
+.czLeft li a{color:#a6a6a9;}
+.czLeft li em{width:19px; height:17px; float:left; margin:3px 10px 0 0;}
+.yhmLine{width:auto; float:right; padding-right:25px;}
+.yhmPic{width:54px; height:54px; float:left; border-radius:50%; margin:22px 10px 0 40px;}
+.yhmPic img{border-radius:50%;}
+.yhmLine span{width:auto; float:left; line-height:100px; font-size:14px; color:#fff;}
+.yhmLine span em{width:10px; height:5px; float:right; margin-left:20px;}
+.left_meun ul li{width:100%; float:left; height:60px;}
+.left_meun ul li a{width:100%;height:60px; display:block;}
+.left_meun ul li em{width:20px; height:20px; float:left; background:url(../img/icon1.png) no-repeat; background-position:0 0; margin:20px 20px 0 32px;}
+.left_meun ul li p{width:auto; float:left; line-height:60px; font-size:16px; color:#fff;}
+.left_meun ul li .xialaxx{width:10px; height:6px; float:right; margin-right:30px; margin-top:27px; background:url(../img/icon.png) no-repeat;}
+.left_meun ul .leftMeunHover{background:#00adf2;}
+.left_meun ul .leftMeunHover .xialaxx{width:5px; height:14px; float:right; background:url(../img/icon1-4.jpg) no-repeat; margin-top:22px; margin-right:0;}
+.left_meun ul li .fxszIcon{width:20px;background-position:0 -73px;}
+.left_meun ul li .xcxglIcon{width:20px;background-position:0 -181px;}
+.left_meun ul li .csdwIcon{width:20px;background-position:0 -254px;}
+.rightTitle{height:78px;}
+.rightTitle h2{width:auto; float:left; line-height:78px; font-size:20px; color:#333;}
+.bntRight{width:auto; float:right;}
+.bntRight span{width:auto; float:left; margin-top:25px; margin-right:30px;}
+.bntRight .searchLine{width:197px; height:33px; float:left; border-radius:20px; border:1px solid #c6dce6; background:#fff;}
+.searchk{width:140px; float:left; height:32px; line-height:33px; font-size:14px; border:0; margin-top:1px; margin-left:20px; background:none;}
+.bntRight span .searchBnt{width:14px; height:14px; float:left; margin-left:10px; background:url(../img/icon1-3.jpg) no-repeat; cursor:pointer; margin-top:10px;}
+.bntRight .addsjdx{width:156px; height:35px; float:left; border-radius:5px; line-height:35px; background:#2dcf83 url(../img/icon1-1.png) no-repeat 15px 50%; text-align:center; font-size:14px;}
+.bntRight .addsjdx a{156px; height:35px; color:#fff; display:block;}
+.tabCon{margin-right:30px;border:1px solid #c6dce6; border-radius:5px;}
+.tabCon table tr th{height:65px; line-height:65px; text-align:center; font-size:16px; color:#222;}
+.tabCon table tr td{ border-top:1px dotted #d5e4ea; height:65px; line-height:65px;text-align:center; font-size:14px; color:#666;}
+.tabCon table tr td span{width:auto;  font-size:14px; height:35px; line-height:35px; float:left; border:1px solid; border-radius:5px;}
+.tabCon table tr td span a{padding:0 20px; height:35px; display:block;}
+.tabCon table tr td .bjBnt{ border-color:#00adf2; margin-left:34%;}
+.tabCon table tr td .bjBnt a{color:#00adf2;}
+.tabCon table tr td .delBnt{ border-color:#ef654b; margin-left:10px}
+.tabCon table tr td .delBnt a{color:#ef654b;}
+.tabCon table tr td .sjglBnt{ border-color:#2dcf83;margin-left:34%;}
+.tabCon table tr td .sjglBnt a{color:#2dcf83;}
+/*分页样式*/
+.zxgl-line1{width: auto; float:right; margin:20px; line-height:33px; color:#333; font-size:14px; margin-right:0px;}
+.hyxw_b p{ color:#333; font-family:simsun; font-size:12px; text-align: right;}
+.hyxw_b p a{ color:#333; font-size:14px; font-family:simsun;}
+.hyxw_b p a.fy1{ width:60px; height:33px; border:1px solid #ccdee6; display:inline-block; line-height:33px;  text-align:center; background:#fff; border-radius:5px 0 0 5px;}
+.hyxw_b p a.fy2{ width:33px; height:33px; border:1px solid #ccdee6;border-left:0; display:inline-block; line-height:33px; text-align:center;background:#fff;}
+.hyxw_b p a:hover.fy2{background:#00adf2;color:#fff;}
+.hyxw_b p .fy2-on{width:33px; height:33px; background:#00adf2; display:inline-block; line-height:33px; text-align:center; color:#fff;}
+.hyxw_b p a.fy3{ width:60px; height:33px; border:1px solid #ccdee6;border-left:0; display:inline-block; line-height:33px; margin-right:10px;text-align:center;background:#fff;border-radius:0px 5px 5px 0px;}
+.hyxw_b p a.fy4{ width:66px; height:33px; display:inline-block; line-height:33px;text-align:center; color:#fff;background:#00adf2;border-radius:5px; font-size:16px;}
+.hyxw_b p span{ width:66px; height:33px; border:1px solid #ccdee6; display:inline-block; line-height:33px; text-align:center;background:#fff;border-radius:5px;}
+/***************应用数据-新增管理 样式****************/
+.sxxmLeft{width:auto; float:left;}
+.sxxmLeft span{width:auto; float:left; margin-right:15px; line-height:78px;}
+.zfxx{width:136px; height:32px; float:left; border:1px solid #c6dce6; border-radius:5px; text-indent:10px; font-size:14px; line-height:32px; margin-top:22px;}
+.sxxmLeft span p{width:auto; float:left; font-size:14px;}
+.zfxx.w226{width:226px;margin-left: 10%; margin-top:0;}
+.tabCon table tr td .delBnt.mlbfb{margin-left:35%;}
+.tjBnts{margin-top:20px; margin-left:35%;}
+.tjBnts span{width:91px; height:35px; float:left; text-align:center; line-height:35px; font-size:16px; border-radius:5px; cursor:pointer;}
+.tjBnts .bcBnt{background:#2dcf83; color:#fff;}
+.tjBnts .backBnt{ border:1px solid #c6dce6; color:#222; margin-left:10px;}
+/***************应用数据-新增数据 样式****************/
+.bntRight .backBntA{width:96px; height:35px; float:left; border-radius:5px; line-height:35px; border:1px solid #c6dce6; background:#fff url(../img/icon1-5.jpg) no-repeat 15px 50%; text-align:center; font-size:14px;}
+.bntRight .backBntA a{width:96px; height:35px; color:#222; display:block;}
+.tabConA{margin-right:30px;border:1px solid #c6dce6; border-radius:5px; background:#fff; padding:20px 0; overflow:hidden;}
+.tabConA table tr td{line-height:30px; font-size:16px; color:#222; padding-bottom:15px;}
+.picyl{width:118px; height:118px; float:left; border:1px solid #c6dce6; border-radius:5px; margin-right:10px;}
+.picyl img{width:118px; height:118px;border-radius:5px;}
+.upload-img{ width:99px; height:35px; float:left;}
+.sctp{position: relative;top: 35px;width:99px; height:35px;filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);filter:alpha(opacity=0);-moz-opacity:0;-khtml-opacity: 0;opacity:0;background: none;border: none;cursor: pointer;}
+.chk_3 {display: none;}
+.chk_3 + label {
+	background-color: #fafbfa;
+	padding: 9px;
+	border-radius: 50px;
+	display: inline-block;
+	position: relative;
+	margin-right: 30px;
+	-webkit-transition: all 0.1s ease-in;
+	transition: all 0.1s ease-in;
+	width: 40px;
+	height: 15px;
+}
+.chk_3  + label:after {
+	content: ' ';
+	position: absolute;
+	top: 0;
+	-webkit-transition: box-shadow 0.1s ease-in;
+	transition: box-shadow 0.1s ease-in;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 100px;
+	box-shadow: inset 0 0 0 0 #eee, 0 0 1px rgba(0,0,0,0.4);
+}
+.chk_3  + label:before {
+	content: ' ';
+	position: absolute;
+	background: white;
+	top: 1px;
+	left: 1px;
+	z-index: 999999;
+	width: 31px;
+	-webkit-transition: all 0.1s ease-in;
+	transition: all 0.1s ease-in;
+	height: 31px;
+	border-radius: 100px;
+	box-shadow: 0 3px 1px rgba(0,0,0,0.05), 0 0px 1px rgba(0,0,0,0.3);
+}
+.chk_3:active + label:after {
+	box-shadow: inset 0 0 0 20px #eee, 0 0 1px #eee;
+}
+.chk_3:active + label:before {
+	width: 37px;
+}
+.chk_3:checked:active + label:before {
+	width: 37px;
+	left: 20px;
+}
+.chk_3  + label:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+.chk_3:checked + label:before {
+	content: ' ';
+	position: absolute;
+	left: 26px;
+	border-radius: 100px;
+}
+.chk_3:checked + label:after {
+	content: ' ';
+	font-size: 1.5em;
+	position: absolute;
+	background: #00adf2;
+	box-shadow: 0 0 1px #4cda60;
+}
+.kqbg{width:auto; float:left;}
+.tabConA table tr td .zfxx.wlfl{width:210px; margin-left:10px; margin-top:0;}
+/***************数据管理 样式****************/
+.bntRight .dcsjBnt{background:#00adf2;width:96px; height:35px;float:left; border-radius:5px; line-height:35px;text-align:center; font-size:14px;}
+.bntRight .dcsjBnt a{width:96px; height:35px; display:block; color:#fff;}
+.bntRight .addsjBnt{background:#2dcf83;width:96px; height:35px;float:left; border-radius:5px; line-height:35px;text-align:center; font-size:14px;}
+.bntRight .addsjBnt a{width:96px; height:35px; display:block; color:#fff;}
+.flLine{height:55px; background:#e1eff7; padding:0 20px; border-radius:5px 5px 0 0; margin-right:30px; position:relative; top:3px; z-index:0;}
+.tabConB{position:relative; z-index:1;margin-right:30px;border:1px solid #c6dce6; border-radius:5px; background:#fff;}
+.flLineLeft{width:auto; float:left;}
+.flLineRight{width:auto; float:right;}
+.flLineLeft p{width:auto; float:left; line-height:55px; font-size:16px; color:#222;}
+.flLineLeft span{width:auto; line-height:33px; height:33px; padding:0 15px; border:1px solid #aed2e5; border-radius:5px; font-size:14px; color:#222; cursor:pointer; background:#fff; float:left; margin-top:10px;}
+.flLineRight span{width:auto; line-height:33px; height:33px; padding:0 15px; border:1px solid #aed2e5; border-radius:5px; font-size:14px; color:#222; cursor:pointer; background:#fff; float:left; margin-top:10px; margin-right:10px;}
+.zfxx.w96{width:96px;margin-left: 20%; margin-top:0;}
+.picxs{width:117px; height:51px; float:left; border-radius:5px; background:#f3f3f3; margin-left:10%;}
+.picxs img{width:117px; height:51px; border-radius:5px;}
+.tabCon.tabConB table tr td .sjglBnt.fzBnt{margin-left:10px;}
+.tabCon.tabConB table tr td .bjBnt.mlbfb{margin-left:10%;}
+.tabCon.tabConB table tr td{line-height:25px;}
+/*弹层*/
+.blackbg { position:fixed; width:100%; height:100%; background:rgba(0,0,0,0.5);display:none; z-index:10;top:0;}
+.tanchu { position:absolute; top:30%; left:36%; width:504px; background:#fff; padding-bottom:50px; display:none; z-index:10; border:1px solid #c6dce6; border-radius:5px;}
+.tc_title { float:left; font-size:18px; width:100%; height:60px; line-height:60px; background:#f7fcff; color:#666;}
+.tc_title span{width:auto; float:left; margin-left:10px; font-size:21px;}
+.tc_title em{width:auto; float:left; margin-left:10px; font-size:15px;}
+.tc_title i{width:auto; float:right; margin-right:20px; cursor:pointer;}
+.tc_con { float:left; width:450px; margin:5px 0 0 25px;}
+.addsjdx{width:156px; height:35px; float:left; border-radius:5px; line-height:35px; background:#2dcf83 url(../img/icon1-1.png) no-repeat 15px 50%; text-align:center; font-size:14px;}
+.addsjdx a{156px; height:35px; color:#fff; display:block;}
+.gbBnt{width:auto; line-height:33px; height:33px; padding:0 15px; border:1px solid #aed2e5; border-radius:5px; font-size:14px; color:#222; cursor:pointer; background:#fff; float:left; margin-top:10px; margin-right:10px;}
+.gbBntLine{width:50%; float:left; margin-left:40%; margin-top:50px;}
+/***************分享设置 样式****************/
+.fxLine{width:402px; height:402px; float:left; margin-right:20px; background:#fff; border:1px solid #c6dce6; border-radius:5px; padding:20px;}
+.ewmPic{width:100%; float:left;  text-align:center; margin:20px 0;}
+.fxCon{margin-right:30px; overflow:hidden;}
+.fxlj{width:100%; float:left; height:35px; line-height:35px;}
+.fxlj span{width:auto; float:left; font-size:16px; color:#222;}
+.fzlj{width:265px; height:32px; float:left; border:1px solid #2dcf83; border-radius:5px; background:#fff;}
+.shurubox{border:0; width:190px; height:30px; line-height:30px; margin:1px 0 0 6px; color:#222; font-size:14px;}
+.linkback{width:67px; height:32px; float:right; text-align:center; line-height:32px; color:#fff; background:#2dcf83; border:0; border-radius:5px; cursor:pointer;}
+.yjfx{width:100%; float:left; margin-top:20px;}
+.yjfx span{width:auto; float:left; font-size:16px; color:#222; line-height:34px;}
+.cxdb{width:100%; float:left; margin-top:20px;}
+.cxdb span{width:120px; height:35px; text-align:center; float:left; line-height:35px; background:#00adf2; border-radius:5px; font-size:16px; color:#fff; margin-left:35%;}
+.cxdb span a{width:120px; height:35px; display:block; color:#fff;}
+.bbcx{width:100%; float:left; font-size:16px; color:#666; line-height:30px; margin-top:20px; text-align:center;}
+.bbcx a{color:#00adf2;}
+/***************小程序打包 样式****************/
+.dbjdt{margin:20px 0; margin-left:30%; margin-top:40px;}
+.jdLine,.txtLine{width:100%; float:left;}
+.jdLine span{width:auto; float:left;}
+.txtLine{position:relative;}
+.txtLine span{width:auto; float:left; font-size:16px;  color:#222; position:absolute;}
+.txtLine .txt1{color:#00adf2; top:-30px; left:-27px;}
+.txtLine .txt2{top:-30px; left:264px;}
+.txtLine .txt3{top:-30px; left:533px;}
+.txxx{width:100%; float:left; margin-top:20px; text-align:center; font-size:16px; color:#222; line-height:25px;}
+.xxtabCon{width:100%; float:left; margin-top:20px;}
+.xxtabCon table tr td{height:36px; line-height:36px; padding-bottom:15px; font-size:16px; color:#222;}
+.xxtabCon table tr td .zfxx.w344{width:344px; margin-top:0; margin-left:10px;}
+.xxtabCon table tr td span{font-size:14px; color:#999;margin-left:10px;}
+.xxtabCon table tr td span em{color:#ef654b;}
+.xxtabCon table tr td a{color:#00adf2;}
+.tjBnts .dbBnt{width:120px; height:35px; float:left; background:#00adf2; font-size:16px; border-radius:5px; cursor:pointer; text-align:center; color:#fff; margin-left:15%;}
+/***************小程序授权 样式****************/
+.hwsq{width:100%; float:left; margin:40px 0;}
+.sqLine{width:100%; float:left; height:35px;}
+.sqLine p{width:auto; float:left; font-size:16px; color:#222; line-height:35px; margin-left:40px;}
+.sqLine span{width:96px; height:35px; line-height:35px; float:left; border-radius:5px; background:#2dcf83; font-size:16px; color:#fff; text-align:center; cursor:pointer; margin-left:10px;}
+.zdLine{margin-left:40px; font-size:14px; color:#ef654b; line-height:35px; margin-top:10px; width: auto; float:left;}
+
+
+
+
+

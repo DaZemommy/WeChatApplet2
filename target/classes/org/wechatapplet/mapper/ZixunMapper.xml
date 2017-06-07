@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.wechatapplet.dao.ZixunDao" >
+  <resultMap id="BaseResultMap" type="org.wechatapplet.model.Zixun" >
+    <id column="zid" property="zid" jdbcType="INTEGER" />
+    <result column="zname" property="zname" jdbcType="VARCHAR" />
+    <result column="zdesc" property="zdesc" jdbcType="VARCHAR" />
+    <result column="zuid" property="zuid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    zid, zname, zdesc, zuid
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="org.wechatapplet.model.ZixunExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from zixun
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from zixun
+    where zid = #{zid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from zixun
+    where zid = #{zid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.wechatapplet.model.ZixunExample" >
+    delete from zixun
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.wechatapplet.model.Zixun" >
+    insert into zixun (zid, zname, zdesc, 
+      zuid)
+    values (#{zid,jdbcType=INTEGER}, #{zname,jdbcType=VARCHAR}, #{zdesc,jdbcType=VARCHAR}, 
+      #{zuid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="org.wechatapplet.model.Zixun" >
+    insert into zixun
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zid != null" >
+        zid,
+      </if>
+      <if test="zname != null" >
+        zname,
+      </if>
+      <if test="zdesc != null" >
+        zdesc,
+      </if>
+      <if test="zuid != null" >
+        zuid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zid != null" >
+        #{zid,jdbcType=INTEGER},
+      </if>
+      <if test="zname != null" >
+        #{zname,jdbcType=VARCHAR},
+      </if>
+      <if test="zdesc != null" >
+        #{zdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="zuid != null" >
+        #{zuid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.wechatapplet.model.ZixunExample" resultType="java.lang.Integer" >
+    select count(*) from zixun
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update zixun
+    <set >
+      <if test="record.zid != null" >
+        zid = #{record.zid,jdbcType=INTEGER},
+      </if>
+      <if test="record.zname != null" >
+        zname = #{record.zname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zdesc != null" >
+        zdesc = #{record.zdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zuid != null" >
+        zuid = #{record.zuid,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update zixun
+    set zid = #{record.zid,jdbcType=INTEGER},
+      zname = #{record.zname,jdbcType=VARCHAR},
+      zdesc = #{record.zdesc,jdbcType=VARCHAR},
+      zuid = #{record.zuid,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.wechatapplet.model.Zixun" >
+    update zixun
+    <set >
+      <if test="zname != null" >
+        zname = #{zname,jdbcType=VARCHAR},
+      </if>
+      <if test="zdesc != null" >
+        zdesc = #{zdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="zuid != null" >
+        zuid = #{zuid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where zid = #{zid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.wechatapplet.model.Zixun" >
+    update zixun
+    set zname = #{zname,jdbcType=VARCHAR},
+      zdesc = #{zdesc,jdbcType=VARCHAR},
+      zuid = #{zuid,jdbcType=INTEGER}
+    where zid = #{zid,jdbcType=INTEGER}
+  </update>
+</mapper>

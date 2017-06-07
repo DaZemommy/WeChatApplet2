@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>小程序后台管理系统</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<div class="header">
+        <div class="top_logo"><img src="img/logo.jpg"></div> 
+        <div class="topRight">
+        	<ul class="czLeft">
+            	<li><a href="#"><em><img src="img/icon.jpg"></em>预览</a></li>
+            </ul>
+            <div class="yhmLine">
+            	<div class="yhmPic"><img src="img/pic.jpg"></div>
+                <span>海水的味道 <em><img src="img/icon1-2.jpg"></em></span>
+            </div>
+        </div>
+    </div>
+    <div class="content content_help">
+    	<div class="left_meun left_meun_help">
+        	<ul>
+            	<li class="leftMeunHover"><a href="index.html"><em></em><p>应用数据</p><i class="xialaxx"></i></a></li>
+            </ul>
+        </div>
+        <div class="right_con_help">
+        	<div class="rightConLine">
+            	<div class="rightTitle">
+                	<h2>数据对象列表</h2>
+                    <div class="bntRight">
+                    	<span class="searchLine"><input name="" type="text" class="searchk" placeholder="搜索"> <em class="searchBnt"></em></span>
+                        <span class="addsjdx"><a href="#">添加分类</a></span>
+                    </div>
+                </div>
+                <div class="tabCon">
+                	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <th width="21%">对象名称</th>
+                        <th width="31%">描述</th>
+                        <th width="29%">操作</th>
+                        <th width="19%">管理</th>
+                      </tr>
+                      <tr>
+                        <td>优惠券</td>
+                        <td>优惠券页面</td>
+                        <td>
+                        	<span class="bjBnt"><a href="#">编辑</a></span>
+                            <span class="delBnt"><a href="#">删除</a></span>
+                        </td>
+                        <td><span class="sjglBnt"><a href="sjgl.html">数据管理</a></span></td>
+                      </tr>
+                      <tr>
+                        <td>(发现)活动报名</td>
+                        <td>活动报名页面</td>
+                        <td>
+                        	<span class="bjBnt"><a href="#">编辑</a></span>
+                            <span class="delBnt"><a href="#">删除</a></span>
+                        </td>
+                        <td><span class="sjglBnt"><a href="#">数据管理</a></span></td>
+                      </tr>
+                      <tr>
+                        <td>(发现)活动报名</td>
+                        <td>最新资讯页面</td>
+                        <td>
+                        	<span class="bjBnt"><a href="#">编辑</a></span>
+                            <span class="delBnt"><a href="#">删除</a></span>
+                        </td>
+                        <td><span class="sjglBnt"><a href="#">数据管理</a></span></td>
+                      </tr>
+                      <tr>
+                        <td>(发现)活动报名</td>
+                        <td>讨论区页面</td>
+                        <td>
+                        	<span class="bjBnt"><a href="#">编辑</a></span>
+                            <span class="delBnt"><a href="#">删除</a></span>
+                        </td>
+                        <td><span class="sjglBnt"><a href="#">数据管理</a></span></td>
+                      </tr>
+                      <tr>
+                        <td>(发现)活动报名</td>
+                        <td>品牌页面</td>
+                        <td>
+                        	<span class="bjBnt"><a href="#">编辑</a></span>
+                            <span class="delBnt"><a href="#">删除</a></span>
+                        </td>
+                        <td><span class="sjglBnt"><a href="#">数据管理</a></span></td>
+                      </tr>
+                      <tr>
+                        <td>(发现)活动报名</td>
+                        <td>发现页面</td>
+                        <td>
+                        	<span class="bjBnt"><a href="#">编辑</a></span>
+                            <span class="delBnt"><a href="#">删除</a></span>
+                        </td>
+                        <td><span class="sjglBnt"><a href="#">数据管理</a></span></td>
+                      </tr>
+                      <tr>
+                        <td>(发现)活动报名</td>
+                        <td>优惠券页面</td>
+                        <td>
+                        	<span class="bjBnt"><a href="#">编辑</a></span>
+                            <span class="delBnt"><a href="#">删除</a></span>
+                        </td>
+                        <td><span class="sjglBnt"><a href="#">数据管理</a></span></td>
+                      </tr>
+                    </table>
+                    <!--翻页-->
+                    <div class="zxgl-line1 jqlies">
+                    <div class="hyxw_b"><p><a class="fy1" href="#">上一页</a><a class="fy2" href="#">1</a><a class="fy2-on" href="#">2</a><a class="fy2" href="#">3</a><a class="fy2" href="#">4</a><a class="fy3" href="#">下一页</a>　<span>23</span> <a class="fy4" href="#">GO</a></p></div>
+                  </div>
+                </div>
+            </div>
+        </div>
+            <!--弹出框-->
+<div class="blackbg"></div>
+<div class="tanchu">
+	<div class="tc_title"><span>数据分类</span><i><img src="img/clooseIcon.jpg"/></i></div>
+    <div class="tc_con">
+    	<span class="addsjdx mt20"><a href="#">新增分类</a></span>
+        <div class="gbBntLine"><span class="gbBnt">关 闭</div></div>
+    </div>
+</div>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script>
+<!--弹层-->
+$(".addsjdx").click(function(){//点击弹框显示
+	$(".blackbg").show();
+	$(".tanchu").show();
+})
+$(".tc_title i,.gbBnt").click(function(){//弹框关闭
+	$(".blackbg").hide();
+	$(".tanchu,.picture,.scewm").hide();
+})
+</script>
+    </div>
+</body>
+</html>

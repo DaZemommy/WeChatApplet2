@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.wechatapplet.dao.UserModuleDao" >
+  <resultMap id="BaseResultMap" type="org.wechatapplet.model.UserModule" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="app_key" property="appKey" jdbcType="VARCHAR" />
+    <result column="app_secret" property="appSecret" jdbcType="VARCHAR" />
+    <result column="server_url" property="serverUrl" jdbcType="VARCHAR" />
+    <result column="module_id" property="moduleId" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="SMALLINT" />
+    <result column="logo" property="logo" jdbcType="VARCHAR" />
+    <result column="apply_name" property="applyName" jdbcType="VARCHAR" />
+    <result column="apply_description" property="applyDescription" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.wechatapplet.model.UserModule">
+    <result column="attrs" jdbcType="LONGVARCHAR" property="attrs" />
+  </resultMap>
+  <resultMap extends="ResultMapWithBLOBs" id="ResultMapWithBLOBsExtend" type="org.wechatapplet.model.UserModule">
+    <result column="file_path" jdbcType="VARCHAR" property="filePath" />
+    <result column="name" jdbcType="VARCHAR" property="cateName" />
+    <result column="module_name" jdbcType="VARCHAR" property="moduleName" />
+  </resultMap>
+  
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, app_key, app_secret, server_url, module_id, user_id, create_time, update_time, 
+    status, logo, apply_name, apply_description
+  </sql>
+  <sql id="Blob_Column_List" >
+    attrs
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="org.wechatapplet.model.UserModuleExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_user_module
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="org.wechatapplet.model.UserModuleExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_user_module
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_user_module
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_user_module
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="org.wechatapplet.model.UserModuleExample" >
+    delete from t_user_module
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="org.wechatapplet.model.UserModule" >
+    insert into t_user_module (id, app_key, app_secret, 
+      server_url, module_id, user_id, 
+      create_time, update_time, status, 
+      logo, apply_name, apply_description, 
+      attrs)
+    values (#{id,jdbcType=BIGINT}, #{appKey,jdbcType=VARCHAR}, #{appSecret,jdbcType=VARCHAR}, 
+      #{serverUrl,jdbcType=VARCHAR}, #{moduleId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=SMALLINT}, 
+      #{logo,jdbcType=VARCHAR}, #{applyName,jdbcType=VARCHAR}, #{applyDescription,jdbcType=VARCHAR}, 
+      #{attrs,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.wechatapplet.model.UserModule" >
+    insert into t_user_module
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="appKey != null" >
+        app_key,
+      </if>
+      <if test="appSecret != null" >
+        app_secret,
+      </if>
+      <if test="serverUrl != null" >
+        server_url,
+      </if>
+      <if test="moduleId != null" >
+        module_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="logo != null" >
+        logo,
+      </if>
+      <if test="applyName != null" >
+        apply_name,
+      </if>
+      <if test="applyDescription != null" >
+        apply_description,
+      </if>
+      <if test="attrs != null" >
+        attrs,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="appKey != null" >
+        #{appKey,jdbcType=VARCHAR},
+      </if>
+      <if test="appSecret != null" >
+        #{appSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="serverUrl != null" >
+        #{serverUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleId != null" >
+        #{moduleId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="logo != null" >
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyName != null" >
+        #{applyName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDescription != null" >
+        #{applyDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="attrs != null" >
+        #{attrs,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="org.wechatapplet.model.UserModuleExample" resultType="java.lang.Integer" >
+    select count(*) from t_user_module
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_user_module
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.appKey != null" >
+        app_key = #{record.appKey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appSecret != null" >
+        app_secret = #{record.appSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serverUrl != null" >
+        server_url = #{record.serverUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.moduleId != null" >
+        module_id = #{record.moduleId,jdbcType=BIGINT},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=BIGINT},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=SMALLINT},
+      </if>
+      <if test="record.logo != null" >
+        logo = #{record.logo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyName != null" >
+        apply_name = #{record.applyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.applyDescription != null" >
+        apply_description = #{record.applyDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attrs != null" >
+        attrs = #{record.attrs,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update t_user_module
+    set id = #{record.id,jdbcType=BIGINT},
+      app_key = #{record.appKey,jdbcType=VARCHAR},
+      app_secret = #{record.appSecret,jdbcType=VARCHAR},
+      server_url = #{record.serverUrl,jdbcType=VARCHAR},
+      module_id = #{record.moduleId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=SMALLINT},
+      logo = #{record.logo,jdbcType=VARCHAR},
+      apply_name = #{record.applyName,jdbcType=VARCHAR},
+      apply_description = #{record.applyDescription,jdbcType=VARCHAR},
+      attrs = #{record.attrs,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_user_module
+    set id = #{record.id,jdbcType=BIGINT},
+      app_key = #{record.appKey,jdbcType=VARCHAR},
+      app_secret = #{record.appSecret,jdbcType=VARCHAR},
+      server_url = #{record.serverUrl,jdbcType=VARCHAR},
+      module_id = #{record.moduleId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=SMALLINT},
+      logo = #{record.logo,jdbcType=VARCHAR},
+      apply_name = #{record.applyName,jdbcType=VARCHAR},
+      apply_description = #{record.applyDescription,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="org.wechatapplet.model.UserModule" >
+    update t_user_module
+    <set >
+      <if test="appKey != null" >
+        app_key = #{appKey,jdbcType=VARCHAR},
+      </if>
+      <if test="appSecret != null" >
+        app_secret = #{appSecret,jdbcType=VARCHAR},
+      </if>
+      <if test="serverUrl != null" >
+        server_url = #{serverUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleId != null" >
+        module_id = #{moduleId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="logo != null" >
+        logo = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="applyName != null" >
+        apply_name = #{applyName,jdbcType=VARCHAR},
+      </if>
+      <if test="applyDescription != null" >
+        apply_description = #{applyDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="attrs != null" >
+        attrs = #{attrs,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="org.wechatapplet.model.UserModule" >
+    update t_user_module
+    set app_key = #{appKey,jdbcType=VARCHAR},
+      app_secret = #{appSecret,jdbcType=VARCHAR},
+      server_url = #{serverUrl,jdbcType=VARCHAR},
+      module_id = #{moduleId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=SMALLINT},
+      logo = #{logo,jdbcType=VARCHAR},
+      apply_name = #{applyName,jdbcType=VARCHAR},
+      apply_description = #{applyDescription,jdbcType=VARCHAR},
+      attrs = #{attrs,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.wechatapplet.model.UserModule" >
+    update t_user_module
+    set app_key = #{appKey,jdbcType=VARCHAR},
+      app_secret = #{appSecret,jdbcType=VARCHAR},
+      server_url = #{serverUrl,jdbcType=VARCHAR},
+      module_id = #{moduleId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=SMALLINT},
+      logo = #{logo,jdbcType=VARCHAR},
+      apply_name = #{applyName,jdbcType=VARCHAR},
+      apply_description = #{applyDescription,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="selectById"  parameterType="java.lang.Long" resultMap="ResultMapWithBLOBsExtend">
+  	SELECT
+		u.id,
+		u.app_key,
+		u.app_secret,
+		u.server_url,
+		u.module_id,
+		u.user_id,
+		u.create_time,
+		u.update_time,
+		u.status,
+		u.attrs,
+	  	m.module_name,
+	  	m.file_path,
+		c.name
+	FROM
+		t_user_module u LEFT JOIN t_module m ON u.module_id = m.id LEFT JOIN t_module_cate c ON m.cate_id = c.id
+	WHERE
+		u.id = #{id}
+  </select>
+</mapper>
